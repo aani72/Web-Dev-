@@ -1,0 +1,82 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f5f5f5;
+}
+
+nav {
+    background: #ff4d4d;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.food-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.food-card {
+    background: white;
+    padding: 15px;
+    width: 150px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.food-card button {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cart-panel {
+    position: fixed;
+    right: -350px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    padding: 20px;
+    box-shadow: -5px 0 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    overflow-y: auto;
+}
+
+.cart-panel.active {
+    right: 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.discount-section {
+    margin-top: 15px;
+}
+
+.checkout {
+    display: none;
+    padding: 20px;
+    background: white;
+    margin: 20px;
+}
+
+.checkout input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+.checkout-btn {
+    margin-top: 10px;
+    padding: 8px;
+    width: 100%;
+}
