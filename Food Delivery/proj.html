@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FoodExpress Pro</title>
+    <link rel="stylesheet" href="proj.css">
+</head>
+<body>
+
+<nav>
+    <h1>🍔 FoodExpress</h1>
+    <div class="cart-icon" onclick="toggleCart()">
+        🛒 Cart (<span id="cart-count">0</span>)
+    </div>
+</nav>
+
+<section class="food-container">
+
+    <div class="food-card">
+        <h3>Burger</h3>
+        <p>₹120</p>
+        <button onclick="addToCart('Burger',120)">Add</button>
+    </div>
+
+    <div class="food-card">
+        <h3>Pizza</h3>
+        <p>₹250</p>
+        <button onclick="addToCart('Pizza',250)">Add</button>
+    </div>
+
+    <div class="food-card">
+        <h3>Pasta</h3>
+        <p>₹180</p>
+        <button onclick="addToCart('Pasta',180)">Add</button>
+    </div>
+
+    <div class="food-card">
+        <h3>Sandwich</h3>
+        <p>₹90</p>
+        <button onclick="addToCart('Sandwich',90)">Add</button>
+    </div>
+
+    <div class="food-card">
+        <h3>Cold Drink</h3>
+        <p>₹60</p>
+        <button onclick="addToCart('Cold Drink',60)">Add</button>
+    </div>
+
+</section>
+
+<!-- CART PANEL -->
+<div class="cart-panel" id="cartPanel">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+
+    <div class="discount-section">
+        <input type="text" id="coupon" placeholder="Enter Coupon">
+        <button onclick="applyDiscount()">Apply</button>
+    </div>
+
+    <h3>Total: ₹<span id="total">0</span></h3>
+
+    <button class="checkout-btn" onclick="showCheckout()">Checkout</button>
+</div>
+
+<!-- CHECKOUT SECTION -->
+<div class="checkout" id="checkoutSection">
+    <h2>Delivery Details</h2>
+    <input type="text" id="address" placeholder="Enter Address">
+
+    <h3>Payment Method</h3>
+    <label><input type="radio" name="payment" value="COD"> Cash on Delivery</label>
+    <label><input type="radio" name="payment" value="Online"> Online Payment</label>
+
+    <button onclick="placeOrder()">Place Order</button>
+</div>
+
+<script src="proj.js"></script>
+</body>
+</html>
