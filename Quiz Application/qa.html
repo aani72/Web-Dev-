@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Interactive Quiz</title> 
+    <link rel="stylesheet" href="qa.css"> 
+</head> 
+<body> 
+    <header> 
+        <h1>Interactive Quiz Application</h1> 
+        <p>Test your knowledge with this simple multiple-choice quiz.</p> 
+    </header> 
+    <main class="quiz-container"> 
+        <section id="quiz"> 
+            <h2 id="question">Question appears here</h2> 
+            <div id="options" class="options-container"> 
+            </div> 
+            <button id="next-btn">Next</button> 
+        </section> 
+        <section id="result" class="hidden"> 
+            <h2>Your Score</h2> 
+            <p id="score-text"></p> 
+            <p id="feedback"></p> 
+            <button id="restart-btn">Restart Quiz</button> 
+        </section> 
+    </main> 
+    <script src="qa.js"></script> 
+</body> 
+</html>
