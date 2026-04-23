@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>All Blog Posts</h1>
+{% if posts %}
+    {% for post in posts %}
+    <div class="post-card">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        <a href="/edit/{{ post.id }}">Edit</a>
+        <a href="/delete/{{ post.id }}" onclick="return confirm('Delete this post?')">Delete</a>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No posts yet. <a href="/create">Create one!</a></p>
+{% endif %}
+{% endblock %}
