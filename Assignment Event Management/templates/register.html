@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Register</h2>
+
+<form name="form" method="POST" onsubmit="return validateForm()">
+    <input type="text" name="name" placeholder="Full Name"><br>
+    <input type="email" name="email" placeholder="Email"><br>
+    <input type="text" name="phone" placeholder="Phone"><br>
+
+    <select name="event">
+        {% for event in events %}
+        <option>{{ event.name }}</option>
+        {% endfor %}
+    </select><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}
