@@ -1,0 +1,16 @@
+/* style.css | Experiment 7 */
+body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+header { background: #1a1a2e; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+header h1 { margin: 0; }
+nav a { color: #eee; text-decoration: none; margin-left: 20px; }
+main { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+.products { display: flex; gap: 20px; flex-wrap: wrap; }
+.card { background: white; border-radius: 10px; padding: 20px; width: 200px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; }
+.card img { width: 100%; border-radius: 6px; }
+.card h3 { margin: 10px 0 5px; }
+.card p { font-size: 0.85em; color: #666; }
+button { background: #1a1a2e; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+button:hover { background: #e94560; }
+#cart-items ul { list-style: none; padding: 0; }
+#cart-items li { background: white; padding: 10px; margin: 5px 0; border-radius: 6px; }
+#confirmation { background: #d4edda; padding: 20px; border-radius: 8px; margin-top: 20px; }

@@ -1,1 +1,52 @@
+<!-- E-Commerce Website | Experiment 7 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShopEasy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🛒 ShopEasy</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="checkout.html">Checkout (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
 
+    <main>
+        <h2>Our Products</h2>
+        <div class="products" id="product-list">
+            <div class="card">
+                <img src="https://via.placeholder.com/150" alt="Laptop">
+                <h3>Laptop</h3>
+                <p>Powerful laptop for everyday use.</p>
+                <strong>₹45,000</strong>
+                <button onclick="addToCart('Laptop', 45000)">Add to Cart</button>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/150" alt="Headphones">
+                <h3>Headphones</h3>
+                <p>Noise-cancelling wireless headphones.</p>
+                <strong>₹3,500</strong>
+                <button onclick="addToCart('Headphones', 3500)">Add to Cart</button>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/150" alt="Smartwatch">
+                <h3>Smartwatch</h3>
+                <p>Feature-packed smartwatch with AMOLED display.</p>
+                <strong>₹8,000</strong>
+                <button onclick="addToCart('Smartwatch', 8000)">Add to Cart</button>
+            </div>
+        </div>
+
+        <h2>🛍 Your Cart</h2>
+        <div id="cart-items"><p>Cart is empty.</p></div>
+        <p><strong>Total: ₹<span id="total">0</span></strong></p>
+        <button onclick="window.location.href='checkout.html'">Proceed to Checkout</button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

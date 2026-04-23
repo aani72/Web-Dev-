@@ -1,0 +1,29 @@
+<!-- Checkout Page | Experiment 7 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout - ShopEasy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🛒 ShopEasy - Checkout</h1>
+        <nav><a href="index.html">← Back to Shop</a></nav>
+    </header>
+
+    <main>
+        <h2>Order Summary</h2>
+        <div id="checkout-items"><p>No items in cart.</p></div>
+        <p><strong>Total: ₹<span id="checkout-total">0</span></strong></p>
+        <button id="place-order-btn" onclick="placeOrder()">Place Order</button>
+        <div id="confirmation" style="display:none;">
+            <h2>✅ Order Confirmed!</h2>
+            <p>Thank you for shopping with ShopEasy. Your order is being processed.</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>loadCheckout();</script>
+</body>
+</html>
