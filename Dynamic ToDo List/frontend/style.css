@@ -1,0 +1,161 @@
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(120deg,#667eea,#764ba2);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+padding:40px;
+}
+
+.app{
+width:520px;
+background:white;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+overflow:hidden;
+}
+
+header{
+background:linear-gradient(90deg,#ff6a00,#ee0979);
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.subtitle{
+font-size:14px;
+opacity:0.9;
+}
+
+.input-card{
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.row{
+display:flex;
+gap:10px;
+}
+
+input,textarea,select{
+padding:10px;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+textarea{
+resize:none;
+height:60px;
+}
+
+button{
+border:none;
+border-radius:6px;
+padding:10px 14px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+#addBtn{
+background:#00c853;
+color:white;
+}
+
+#addBtn:hover{
+transform:scale(1.05);
+background:#00a844;
+}
+
+.toolbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 20px 10px 20px;
+}
+
+.filters button{
+background:#e0e0e0;
+margin-right:5px;
+}
+
+.filters button.active{
+background:#333;
+color:white;
+}
+
+ul{
+list-style:none;
+padding:0;
+margin:0;
+}
+
+li{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:14px 20px;
+border-top:1px solid #eee;
+}
+
+li:hover{
+background:#f7f7f7;
+}
+
+.completed span{
+text-decoration:line-through;
+color:#777;
+}
+
+.priority{
+font-size:11px;
+padding:4px 8px;
+border-radius:12px;
+color:white;
+}
+
+.Low{
+background:#43a047;
+}
+
+.Medium{
+background:#fb8c00;
+}
+
+.High{
+background:#e53935;
+}
+
+.actions button{
+margin-left:5px;
+padding:6px 8px;
+font-size:12px;
+}
+
+.actions .edit{
+background:#2196f3;
+color:white;
+}
+
+.actions .delete{
+background:#e53935;
+color:white;
+}
+
+small{
+display:block;
+font-size:11px;
+color:#777;
+}
+
+footer{
+text-align:center;
+font-size:12px;
+padding:10px;
+background:#fafafa;
+}
