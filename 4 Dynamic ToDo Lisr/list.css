@@ -1,0 +1,161 @@
+/* list.css | Experiment 4 - Dynamic To-Do List */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1b4332, #40916c);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+.app-wrapper {
+    background: #f0fdf4;
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #1b4332;
+}
+
+.subtitle {
+    color: #52b788;
+    font-size: 0.95rem;
+    margin-top: 5px;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 2px solid #52b788;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background: #fff;
+    color: #1b4332;
+    transition: border-color 0.2s;
+}
+
+#task-input:focus {
+    border-color: #1b4332;
+}
+
+#add-btn {
+    background: #1b4332;
+    color: #d8f3dc;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#add-btn:hover {
+    background: #40916c;
+}
+
+#task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-item {
+    background: #d8f3dc;
+    border-left: 5px solid #40916c;
+    border-radius: 8px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.2s;
+}
+
+.task-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #1b4332;
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+    font-size: 1rem;
+    color: #1b4332;
+}
+
+.task-text.done {
+    text-decoration: line-through;
+    color: #74c69d;
+}
+
+.edit-input {
+    flex: 1;
+    padding: 5px 8px;
+    border: 2px solid #40916c;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.btn-edit {
+    background: #74c69d;
+    color: #1b4332;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.btn-edit:hover {
+    background: #52b788;
+}
+
+.btn-delete {
+    background: #b7245c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.btn-delete:hover {
+    background: #89174a;
+}
+
+#empty-msg {
+    text-align: center;
+    color: #74c69d;
+    font-size: 0.95rem;
+    margin-top: 20px;
+}
