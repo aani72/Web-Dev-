@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Contacts</h1>
+<form method="GET">
+    <input type="text" name="search" placeholder="Search by name or email..." value="{{ search }}">
+    <button type="submit">Search</button>
+</form>
+{% if contacts %}
+<table>
+    <tr><th>Name</th><th>Phone</th><th>Email</th><th>Actions</th></tr>
+    {% for c in contacts %}
+    <tr>
+        <td>{{ c.name }}</td>
+        <td>{{ c.phone }}</td>
+        <td>{{ c.email }}</td>
+        <td>
+            <a href="/edit/{{ c.id }}">Edit</a>
+            <a href="/delete/{{ c.id }}" onclick="return confirm('Delete?')">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No contacts found.</p>
+{% endif %}
+{% endblock %}
