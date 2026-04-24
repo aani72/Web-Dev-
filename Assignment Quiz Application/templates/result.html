@@ -1,0 +1,43 @@
+<!-- result.html | Quiz App - Result Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card center">
+            <div class="icon">🏆</div>
+            <h1>Quiz Completed!</h1>
+            <p class="score-text">You scored <strong>{{ score }}</strong> out of <strong>{{ total }}</strong></p>
+
+            {% if score == total %}
+                <p class="badge perfect">🌟 Perfect Score!</p>
+            {% elif score >= total // 2 %}
+                <p class="badge good">👍 Good Job!</p>
+            {% else %}
+                <p class="badge poor">💪 Keep Practicing!</p>
+            {% endif %}
+
+            <h3 class="review-title">Review Your Answers:</h3>
+            <div class="review-list">
+                {% for a in answers %}
+                <div class="review-item {{ 'correct' if a.is_correct else 'wrong' }}">
+                    <p class="review-q">{{ loop.index }}. {{ a.question }}</p>
+                    <p>Your answer: <strong>{{ a.selected }}</strong>
+                        {% if a.is_correct %}✅{% else %}❌{% endif %}
+                    </p>
+                    {% if not a.is_correct %}
+                    <p class="correct-ans">Correct: {{ a.correct }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+
+            <a href="/" class="btn-start">🔄 Try Again</a>
+        </div>
+    </div>
+</body>
+</html>
