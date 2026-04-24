@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}My Tasks — Flask To-Do{% endblock %}
+
+{% block content %}
+
+<!-- ── Input Panel ─────────────────────────────────────────────────────── -->
+<section class="input-panel">
+    <h2 class="panel-title">Add New Task</h2>
+
+    <div class="input-group">
+        <input
+            type="text"
+            id="task-title"
+            class="input-field"
+            placeholder="Task title (required)"
+            maxlength="120"
+        />
+        <span class="error-msg" id="title-error">Title cannot be empty!</span>
+    </div>
+
+    <div class="input-group">
+        <textarea
+            id="task-desc"
+            class="input-field textarea-field"
+            placeholder="Description (optional)"
+            rows="2"
+        ></textarea>
+    </div>
+
+    <div class="input-row">
+        <select id="task-priority" class="input-field select-field">
+            <option value="low">🟢 Low Priority</option>
+            <option value="medium" selected>🟠 Medium Priority</option>
+            <option value="high">🔴 High Priority</option>
+        </select>
+        <button id="add-btn" class="btn btn-primary" onclick="addTask()">
+            ＋ Add Task
+        </button>
+    </div>
+
+    <!-- Global error banner for fetch failures -->
+    <div class="fetch-error" id="fetch-error"></div>
+</section>
+
+
+<!-- ── Task Counter ────────────────────────────────────────────────────── -->
+<section class="counter-bar" id="counter-bar">
+    <span class="counter-badge counter-total">Total: <strong id="cnt-total">0</strong></span>
+    <span class="counter-badge counter-active">Active: <strong id="cnt-active">0</strong></span>
+    <span class="counter-badge counter-done">Done: <strong id="cnt-done">0</strong></span>
+</section>
+
+
+<!-- ── Filter Bar ─────────────────────────────────────────────────────── -->
+<section class="filter-bar">
+    <button class="btn btn-filter active-filter" data-filter="all"       onclick="filterTasks('all')">All Tasks</button>
+    <button class="btn btn-filter"               data-filter="active"    onclick="filterTasks('active')">Active</button>
+    <button class="btn btn-filter"               data-filter="completed" onclick="filterTasks('completed')">Completed</button>
+</section>
+
+
+<!-- ── Task List Container ────────────────────────────────────────────── -->
+<section id="task-list">
+    <!-- Task cards injected by JavaScript -->
+</section>
+
+{% endblock %}
