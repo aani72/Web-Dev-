@@ -1,0 +1,417 @@
+/* style.css — Flask To-Do App — All Application Styles
+   Name: ________________________________
+   Roll Number: __________________________
+   Date: _________________________________ */
+
+/* === SECTION 1 — Global Reset & CSS Variables ========================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color:   #4f46e5;   /* indigo */
+    --primary-hover:   #4338ca;
+    --success-color:   #16a34a;   /* green */
+    --danger-color:    #dc2626;   /* red */
+    --warning-color:   #d97706;   /* orange */
+    --info-color:      #0284c7;   /* blue */
+    --bg-color:        #f1f5f9;
+    --card-bg:         #ffffff;
+    --text-color:      #1e293b;
+    --text-muted:      #64748b;
+    --border-color:    #e2e8f0;
+    --radius:          10px;
+    --radius-sm:       6px;
+    --shadow:          0 2px 10px rgba(0, 0, 0, 0.08);
+    --shadow-md:       0 4px 20px rgba(0, 0, 0, 0.12);
+    --font:            'Segoe UI', system-ui, -apple-system, sans-serif;
+    --transition:      0.25s ease;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* === SECTION 2 — Layout & Base ========================================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--primary-color);
+    box-shadow: var(--shadow-md);
+    padding: 0.75rem 1.5rem;
+}
+
+.nav-container {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.3px;
+}
+
+.nav-badge {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+    border-radius: 999px;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.main-container {
+    max-width: 760px;
+    margin: 2rem auto;
+    padding: 0 1rem 3rem;
+}
+
+/* === SECTION 3 — Input Panel =========================================== */
+.input-panel {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.panel-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.input-group {
+    margin-bottom: 0.85rem;
+    position: relative;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.6rem 0.85rem;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-family: var(--font);
+    font-size: 0.95rem;
+    color: var(--text-color);
+    background: #fafafa;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline: none;
+}
+
+.input-field:focus {
+    border-color: var(--primary-color);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.textarea-field {
+    resize: vertical;
+    min-height: 64px;
+}
+
+.select-field {
+    cursor: pointer;
+}
+
+.input-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.input-row .select-field {
+    flex: 1;
+}
+
+.error-msg {
+    display: none;
+    color: var(--danger-color);
+    font-size: 0.82rem;
+    margin-top: 0.3rem;
+}
+
+.fetch-error {
+    display: none;
+    background: #fee2e2;
+    color: var(--danger-color);
+    border: 1px solid #fca5a5;
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 0.85rem;
+    font-size: 0.88rem;
+    margin-top: 0.75rem;
+}
+
+/* === SECTION 4 — Filter Bar ============================================ */
+.filter-bar {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.btn-filter {
+    background: var(--card-bg);
+    color: var(--text-muted);
+    border: 1.5px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.btn-filter:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-filter.active-filter {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* === SECTION 5 — Task Counter ========================================== */
+.counter-bar {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.counter-badge {
+    border-radius: 999px;
+    padding: 0.3rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.counter-total  { background: #dbeafe; color: var(--info-color); }
+.counter-active { background: #ffedd5; color: var(--warning-color); }
+.counter-done   { background: #dcfce7; color: var(--success-color); }
+
+/* === SECTION 6 — Task Cards ============================================ */
+.task-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 0.85rem;
+    padding: 1rem 1.1rem;
+    border-left: 5px solid var(--border-color);
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+/* Priority left-border colours */
+.task-card[data-priority="high"]   { border-left-color: var(--danger-color); }
+.task-card[data-priority="medium"] { border-left-color: var(--warning-color); }
+.task-card[data-priority="low"]    { border-left-color: var(--success-color); }
+
+/* Completed card styling */
+.task-card.completed {
+    opacity: 0.6;
+    background: #f8fafc;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.task-title {
+    flex: 1;
+    font-weight: 600;
+    font-size: 0.97rem;
+    transition: text-decoration var(--transition), opacity var(--transition);
+}
+
+.task-title.strikethrough {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.task-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+}
+
+.task-date {
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+/* Priority pill badges */
+.badge {
+    border-radius: 999px;
+    padding: 0.15rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.priority-high   { background: #fee2e2; color: var(--danger-color); }
+.priority-medium { background: #ffedd5; color: var(--warning-color); }
+.priority-low    { background: #dcfce7; color: var(--success-color); }
+
+/* Custom checkbox */
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.task-checkbox {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+}
+
+/* === SECTION 7 — Edit Mode ============================================= */
+.edit-title-input,
+.edit-desc-input,
+.edit-prio-select {
+    margin-bottom: 0.5rem;
+}
+
+.btn-save {
+    background: var(--success-color);
+    color: #fff;
+}
+
+.btn-save:hover { background: #15803d; }
+
+.btn-cancel {
+    background: #94a3b8;
+    color: #fff;
+}
+
+.btn-cancel:hover { background: #64748b; }
+
+/* === SECTION 8 — Animations ============================================ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes slideOut {
+    from { opacity: 1; transform: translateX(0); max-height: 200px; }
+    to   { opacity: 0; transform: translateX(30px); max-height: 0; padding: 0; margin: 0; }
+}
+
+.slide-out {
+    animation: slideOut 0.35s ease forwards;
+    overflow: hidden;
+}
+
+/* === SECTION 9 — Responsive (@media ≤ 600px) =========================== */
+@media (max-width: 600px) {
+    .main-container {
+        padding: 0 0.75rem 2rem;
+        margin-top: 1rem;
+    }
+
+    .input-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-row .select-field,
+    .input-row .btn-primary {
+        width: 100%;
+    }
+
+    .filter-bar {
+        flex-wrap: wrap;
+    }
+
+    .card-header {
+        flex-wrap: wrap;
+    }
+
+    .counter-bar {
+        justify-content: center;
+    }
+}
+
+/* === Shared Button Base Style ========================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 0.45rem 0.9rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+    white-space: nowrap;
+}
+
+.btn-primary:hover { background: var(--primary-hover); }
+
+.btn-edit {
+    background: #e0e7ff;
+    color: var(--primary-color);
+}
+
+.btn-edit:hover { background: #c7d2fe; }
+
+.btn-delete {
+    background: #fee2e2;
+    color: var(--danger-color);
+}
+
+.btn-delete:hover { background: #fecaca; }
+
+/* === Empty State ======================================================= */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+}
+
+.empty-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
