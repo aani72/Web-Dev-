@@ -1,0 +1,24 @@
+<!-- index.html | Quiz App - Home Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card center">
+            <div class="icon">🧠</div>
+            <h1>Welcome to Quiz App</h1>
+            <p class="subtitle">Test your Web Programming knowledge!</p>
+            <ul class="info-list">
+                <li>📋 5 Multiple Choice Questions</li>
+                <li>✅ Instant result after each answer</li>
+                <li>🏆 Score shown at the end</li>
+            </ul>
+            <a href="/quiz" class="btn-start">Start Quiz →</a>
+        </div>
+    </div>
+</body>
+</html>
